@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComputersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaticController;
 /*
@@ -12,10 +13,14 @@ use App\Http\Controllers\StaticController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [StaticController:: class, 'index'])->name('home.index');
+Route::get('/about', [StaticController:: class, 'about'])->name('home.about');
+Route::get('/contact', [StaticController:: class, 'contact'])->name('home.contact');
 
-Route::get('/', [StaticController:: class, 'index']);
-Route::get('/about', [StaticController:: class, 'about']);
-Route::get('/contact', [StaticController:: class, 'contact']);
+Route::resource('computers', ComputersController::class);
+
+
+
 
 Route::get('/strore/{category?}/{items?}', function ($category = null , $items = null) {
      if(isset($category)){
