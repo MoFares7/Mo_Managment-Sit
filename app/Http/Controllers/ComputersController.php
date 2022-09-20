@@ -3,9 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Static_;
 
 class ComputersController extends Controller
 {
+
+    //! Arry of Static Data
+
+    private static function getData()
+    {
+        return [
+            ['id' => 1, 'name' => 'LG', 'country' => 'Koria'],
+            ['id' => 2, 'name' => 'HP', 'country' => 'Germany'],
+            ['id' => 3, 'name' => 'Sony', 'country' => 'Koria'],
+            ['id' => 4, 'name' => 'Apple', 'country' => 'US'],
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +27,9 @@ class ComputersController extends Controller
      */
     public function index()
     {
-        return view('computers.index');
+        return view('computers.index', [
+            'computers' => self::getData()
+        ]);
     }
 
     /**
@@ -43,9 +59,16 @@ class ComputersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($computer)
     {
-        //
+        $computers = self::getData();
+        $index = array_search($computer, array_column($computers, 'id'));
+        if ($index === false) {
+            abort(404);
+        }
+        return view('computers.show', [
+            'computer' => $computers[$index]
+        ]);
     }
 
     /**
