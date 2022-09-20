@@ -15,8 +15,7 @@ use App\Http\Controllers\StaticController;
 
 Route::get('/', [StaticController:: class, 'index']);
 Route::get('/about', [StaticController:: class, 'about']);
-Route::get('/store', [StaticController:: class, 'store']);
-Route::get('/logout', [StaticController:: class, 'logout']);
+Route::get('/contact', [StaticController:: class, 'contact']);
 
 Route::get('/strore/{category?}/{items?}', function ($category = null , $items = null) {
      if(isset($category)){

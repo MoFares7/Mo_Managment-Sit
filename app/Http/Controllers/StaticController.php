@@ -12,7 +12,5 @@ class StaticController extends Controller
     return view('about');
 }  public  function contact () {
     return   view('contact');
-}  public  function logout () {
-    return "<h1>Logout</h1>";
-}
+}  
 }
