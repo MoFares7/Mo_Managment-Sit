@@ -39,7 +39,7 @@ class ComputersController extends Controller
      */
     public function create()
     {
-        //
+        return view('computers.create');
     }
 
     /**

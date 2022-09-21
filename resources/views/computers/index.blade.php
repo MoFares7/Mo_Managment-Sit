@@ -13,7 +13,7 @@
 
             <a href="{{route('computers.show', ['computer' => $computer['id']]) }}">
                 <li>
-                    {{$computer['name']}}
+                    {{$computer['name']}} is form <strong> {{$computer['country']}}</strong>
                 </li>
             </a>
 
@@ -21,5 +21,3 @@
         </ul>
     </div>
     @endsection
-
-    @section('title','about')
