@@ -1,15 +1,15 @@
 @extends('layout')
-@section('title', 'Computers')
+@section('title', 'Create Computers')
 
 @section('content')
-<div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-    <link rel="stylesheet" href="css/style.css">
-    <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+<div class="max-w-6xl mx-auto ">
+    <div class="flex justify-center ">
         <h1>Create a new Computer</h1>
     </div>
     <div class="flex justify-center">
-        <form action="" , method="post">
-            <div>
+        <form action="{{route('computers.store')}}" , method="post">
+        @csrf  
+        <div>
                 <label for="computer-name">Computer Name</label>
                 <input id="computer-name" name="computer-name" type="text">
             </div>

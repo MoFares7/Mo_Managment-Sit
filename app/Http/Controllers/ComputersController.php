@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\computer;
 use PhpParser\Node\Stmt\Static_;
 
 class ComputersController extends Controller
@@ -28,7 +29,7 @@ class ComputersController extends Controller
     public function index()
     {
         return view('computers.index', [
-            'computers' => self::getData()
+            'computers' => computer::all()
         ]);
     }
 
@@ -42,15 +43,18 @@ class ComputersController extends Controller
         return view('computers.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $computer = new computer();
+
+        $computer->name   = $request->input('computer-name');
+        $computer->origin = $request->input('computer-origin');
+        $computer->price   = $request->input('computer-price');
+
+        $computer->save();
+
+        return redirect()->route('computer.index');
     }
 
     /**
