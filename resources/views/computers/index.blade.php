@@ -13,7 +13,7 @@
 
             <a href="{{route('computers.show', ['computer' => $computer['id']]) }}">
                 <li>
-                    {{$computer['name']}} is form <strong> {{$computer['country']}}</strong>
+                    <p> {{$computer['name']}} ( {{$computer['origin']}} ) <strong> {{$computer['price']}}</strong></p>
                 </li>
             </a>
 

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Create Computers')
+@section('title', 'Create')
 
 @section('content')
 <div class="max-w-6xl mx-auto ">
@@ -8,8 +8,8 @@
     </div>
     <div class="flex justify-center">
         <form action="{{route('computers.store')}}" , method="post">
-        @csrf  
-        <div>
+            @csrf
+            <div>
                 <label for="computer-name">Computer Name</label>
                 <input id="computer-name" name="computer-name" type="text">
             </div>
@@ -29,5 +29,3 @@
     </div>
 
     @endsection
-
-    @section('title','about')

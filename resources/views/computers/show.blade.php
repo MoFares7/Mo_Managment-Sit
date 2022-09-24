@@ -8,8 +8,8 @@
     </div>
 
     <div class="mt-8">
-        <h3>{{$computer['name']}} is form <strong> {{$computer['country']}}</strong>
-    
-    </h3>
+        <p> {{$computer['name']}} ( {{$computer['origin']}} ) <strong> {{$computer['price']}}</strong></p>
+
+        </h3>
     </div>
     @endsection

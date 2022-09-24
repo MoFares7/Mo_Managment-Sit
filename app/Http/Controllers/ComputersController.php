@@ -11,15 +11,7 @@ class ComputersController extends Controller
 
     //! Arry of Static Data
 
-    private static function getData()
-    {
-        return [
-            ['id' => 1, 'name' => 'LG', 'country' => 'Koria'],
-            ['id' => 2, 'name' => 'HP', 'country' => 'Germany'],
-            ['id' => 3, 'name' => 'Sony', 'country' => 'Koria'],
-            ['id' => 4, 'name' => 'Apple', 'country' => 'US'],
-        ];
-    }
+    
 
     /**
      * Display a listing of the resource.
@@ -54,7 +46,7 @@ class ComputersController extends Controller
 
         $computer->save();
 
-        return redirect()->route('computer.index');
+        return redirect()->route('computers.index');
     }
 
     /**
@@ -65,13 +57,12 @@ class ComputersController extends Controller
      */
     public function show($computer)
     {
-        $computers = self::getData();
-        $index = array_search($computer, array_column($computers, 'id'));
-        if ($index === false) {
-            abort(404);
-        }
+
+        //        $computers = self::getData();
+        //   $index = array_search($computer, array_column($computers, 'id'));
+
         return view('computers.show', [
-            'computer' => $computers[$index]
+            'computer' => computer::findOrFail($computer) 
         ]);
     }
 

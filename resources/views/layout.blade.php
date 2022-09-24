@@ -26,6 +26,7 @@
         <a href="{{route('home.about')}}">About</a>
         <a href="{{route('home.contact')}}">Contact</a>
         <a href="{{route('computers.index')}}">Computers</a>
+        <a href="{{route('computers.create')}}">Create</a>
     </nav>
 
 </div>
