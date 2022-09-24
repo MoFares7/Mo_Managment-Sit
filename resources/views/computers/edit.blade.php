@@ -51,15 +51,16 @@
         font-size: .8rem;
         color: red;
     }
-
 </style>
 <div class="max-w-6xl mx-auto ">
     <div class="flex justify-center ">
         <h1>Edit on old Computer</h1>
     </div>
     <div class="flex justify-center">
-        <form action="{{route('computers.store')}}" , method="post">
+        <form action="{{route('computers.update', ['computer' => $computer->id])}}" , method="POST">
             @csrf
+
+            @method('PUT')
             <div>
                 <label for="computer-name">Computer Name</label>
                 <input id="computer-name" name="computer-name" value="{{$computer->name}}" type="text">

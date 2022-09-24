@@ -47,9 +47,9 @@ class ComputersController extends Controller
 
         $computer = new computer();
         //? stripe_tags is prevent send data cross input
-        $computer->name   = $request->input('computer-name');
-        $computer->origin = $request->input('computer-origin');
-        $computer->price   = $request->input('computer-price');
+        $computer->name   = strip_tags($request->input('computer-name'));
+        $computer->origin = strip_tags($request->input('computer-origin'));
+        $computer->price   = strip_tags($request->input('computer-price'));
 
         $computer->save();
 
@@ -93,9 +93,23 @@ class ComputersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $computer)
     {
-        //
+        $request->validate([
+            'computer-name' => 'required',
+            'computer-origin' => 'required',
+            'computer-price' => ['required', 'integer']
+        ]);
+
+        $update =  computer::findOrFail($computer);
+        //? stripe_tags is prevent send data cross input
+        $update->name   = strip_tags($request->input('computer-name'));
+        $update->origin = strip_tags($request->input('computer-origin'));
+        $update->price   = strip_tags($request->input('computer-price'));
+
+        $update->save();
+
+        return redirect()->route('computers.show', $computer);
     }
 
     /**
