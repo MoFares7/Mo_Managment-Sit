@@ -11,7 +11,7 @@ class ComputersController extends Controller
 
     //! Arry of Static Data
 
-    
+
 
     /**
      * Display a listing of the resource.
@@ -38,8 +38,15 @@ class ComputersController extends Controller
 
     public function store(Request $request)
     {
-        $computer = new computer();
+        $request->validate([
+            'computer-name' => 'required',
+            'computer-origin' => 'required',
+            'computer-price' => ['required', 'integer']
+        ]);
 
+
+        $computer = new computer();
+        //? stripe_tags is prevent send data cross input
         $computer->name   = $request->input('computer-name');
         $computer->origin = $request->input('computer-origin');
         $computer->price   = $request->input('computer-price');
@@ -62,7 +69,7 @@ class ComputersController extends Controller
         //   $index = array_search($computer, array_column($computers, 'id'));
 
         return view('computers.show', [
-            'computer' => computer::findOrFail($computer) 
+            'computer' => computer::findOrFail($computer)
         ]);
     }
 
