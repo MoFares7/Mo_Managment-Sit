@@ -54,7 +54,7 @@
 </style>
 <div class="max-w-6xl mx-auto ">
     <div class="flex justify-center ">
-        <h1>Edit on old Computer</h1>
+        <h1>Edit on old Products</h1>
     </div>
     <div class="flex justify-center">
         <form action="{{route('computers.update', ['computer' => $computer->id])}}" , method="POST">
@@ -62,7 +62,7 @@
 
             @method('PUT')
             <div>
-                <label for="computer-name">Computer Name</label>
+                <label for="computer-name">Products Name</label>
                 <input id="computer-name" name="computer-name" value="{{$computer->name}}" type="text">
 
                 @error('computer-name')
@@ -74,7 +74,7 @@
             </div>
 
             <div>
-                <label for="computer-origin">Computer Origin</label>
+                <label for="computer-origin">Products Origin</label>
                 <input id="computer-origin" name="computer-origin" value="{{$computer->origin}}" type="text">
                 @error('computer-origin')
                 <div class="form-error">
@@ -84,7 +84,7 @@
             </div>
 
             <div>
-                <label for="computer-price">Computer Price</label>
+                <label for="computer-price">Products Price</label>
                 <input id="computer-price" name="computer-price" value="{{$computer->price}}" type="text">
                 @error('computer-price')
                 <div class="form-error">
@@ -94,7 +94,7 @@
             </div>
 
             <div>
-                <button type="submit">Submit</button>
+                <button type="submit">Edit</button>
             </div>
         </form>
 

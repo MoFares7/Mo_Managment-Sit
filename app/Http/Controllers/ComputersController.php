@@ -118,8 +118,11 @@ class ComputersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($computer_id)
     {
-        //
+        $detete = computer::findOrFail($computer_id);
+        $detete->delete();
+
+        return redirect()->route('computers.index', $computer_id);
     }
 }

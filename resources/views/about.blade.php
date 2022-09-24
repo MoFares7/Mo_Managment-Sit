@@ -6,7 +6,8 @@
     </div>
 
     <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-        THis Me Page Dooooooooooooooooooon
+        This Sit is Founded to make all Operation in data computer from create ,Delete, show and Edit on all products,
+        this web Sit is Connected with databas to store data which we input them
     </div>
     @endsection
 

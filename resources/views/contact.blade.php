@@ -6,7 +6,7 @@
     </div>
 
     <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-        THis Me Page Dooooooooooooooooooon
+        This Web Sit Development by Mohamas Fares Dabbas
     </div>
     @endsection
 
